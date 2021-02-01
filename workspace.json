@@ -28,15 +28,22 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/foo",
             "index": "apps/foo/src/index.html",
             "main": "apps/foo/src/main.tsx",
             "polyfills": "apps/foo/src/polyfills.ts",
             "tsConfig": "apps/foo/tsconfig.app.json",
-            "assets": ["apps/foo/src/favicon.ico", "apps/foo/src/assets"],
-            "styles": ["apps/foo/src/styles.css"],
+            "assets": [
+              "apps/foo/src/favicon.ico",
+              "apps/foo/src/assets"
+            ],
+            "styles": [
+              "apps/foo/src/styles.css"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -79,12 +86,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/foo/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/foo/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/foo"],
+          "outputs": [
+            "coverage/apps/foo"
+          ],
           "options": {
             "jestConfig": "apps/foo/jest.config.js",
             "passWithNoTests": true
@@ -113,7 +124,34 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/foo-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/foo-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "bar": {
+      "root": "libs/bar",
+      "sourceRoot": "libs/bar/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/bar/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/bar"
+          ],
+          "options": {
+            "jestConfig": "libs/bar/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
